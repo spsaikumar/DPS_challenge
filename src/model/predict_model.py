@@ -16,22 +16,21 @@
 
 
 
-# create a dataframe with the dates for which we want to forecast the values
-future_dates = model.make_future_dataframe(periods=1, freq='MS', include_history=False)
+# # create a dataframe with the dates for which we want to forecast the values
+# future_dates = model.make_future_dataframe(periods=1, freq='MS', include_history=False)
 
-# get the forecasted values
-forecast = model.predict(future_dates)
+# # get the forecasted values
+# forecast = model.predict(future_dates)
 
-# get the forecasted value for the given year and month
-forecasted_value = forecast[(forecast['ds'].dt.year == 2021) & (forecast['ds'].dt.month == 1)]['yhat'].values[0]
+# # get the forecasted value for the given year and month
+# forecasted_value = forecast[(forecast['ds'].dt.year == 2021) & (forecast['ds'].dt.month == 1)]['yhat'].values[0]
 
-print('The forecasted number of accidents for Alkoholunfälle (insgesamt) in January 2021 is:', round(forecasted_value,3))
+# print('The forecasted number of accidents for Alkoholunfälle (insgesamt) in January 2021 is:', round(forecasted_value,3))
 
 import pickle
 import pandas as pd
 from flask import Flask, jsonify, request
-# define the Flask app
-app = Flask(__name__)
+
 
 # @app.route('/future')
 # def model():
@@ -40,7 +39,15 @@ app = Flask(__name__)
 # Load the pickled model
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
-    
+
+# define the Flask app
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'Welcome to the traffic accidents prediction API!'
+
+
 # define the prediction endpoint
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -52,15 +59,23 @@ def predict():
     # create a dataframe with the input date
     input_date = pd.to_datetime(str(year) + '-' + str(month), format='%Y-%m')
     input_data = pd.DataFrame({'ds': [input_date]})
+    print("Input data:",input_data)
+    print('='*50)
 
     # make the prediction using the trained model
     forecast = model.predict(input_data)
-
+    print("forecast data:",forecast)
+    print('='*50)
+    
     # extract the predicted value
     prediction = forecast['yhat'].values[0]
+    print("prediction :",prediction)
+    print('='*50)
 
     # return the prediction as a JSON response
     return jsonify({'prediction': prediction})
 
+# app.debug = True  # advise not to use debug mode in a production environment.
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8080)
+    app.run(debug=True, host='0.0.0.0', port=5000)
