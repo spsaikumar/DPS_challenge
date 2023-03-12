@@ -1,5 +1,5 @@
 # This will be replaced with your bucket name after running the `sed` command in the tutorial
-# BUCKET = "gs://neat-domain-341912-bucket"
+BUCKET = "gs://dataset_traffic_accidents_dps/Monatszahlen_Verkehrsunfälle.csv"
 
 import glob
 import sys
@@ -19,8 +19,8 @@ def get_data_preprocess():
     """  
     
     """
-    file_path = r'C:\Users\pavan\OneDrive\Desktop\Projects\DPS_challenge\data\raw\Monatszahlen_Verkehrsunfälle.csv'
-    df = pd.read_csv(file_path)
+    dataset_path = r'https://storage.googleapis.com/dataset_traffic_accidents_dps/Monatszahlen_Verkehrsunf%C3%A4lle.csv'
+    df = pd.read_csv(dataset_path)
     # Process the data
     data = df.iloc[:, :5].copy()
 
@@ -79,12 +79,12 @@ def generate_futute_data():
 
 # print('The forecasted number of accidents for Alkoholunfälle (insgesamt) in January 2021 is:', round(forecasted_value,3))
 
-# artifact_filename_lr = 'model.pkl'
-# # save the model as a pickle file
-# # Save model artifact to local filesystem (doesn't persist)
-# local_path = artifact_filename_lr
-# with open(local_path, 'wb') as f:
-#   pickle.dump(model, f)
+artifact_filename_lr = 'model.pkl'
+# save the model as a pickle file
+# Save model artifact to local filesystem (doesn't persist)
+local_path = artifact_filename_lr
+with open(local_path, 'wb') as f:
+  pickle.dump(model, f)
 
 # Upload model artifact to Cloud Storage
 # model_directory = os.environ['AIP_MODEL_DIR']
