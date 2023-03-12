@@ -2,6 +2,7 @@
 BUCKET = "gs://dataset_traffic_accidents_dps/Monatszahlen_Verkehrsunfälle.csv"
 
 import glob
+import os
 import sys
 import logging
 import pickle
@@ -74,10 +75,11 @@ def generate_futute_data():
     # get the forecasted value for the given year and month
     forecasted_value = forecast[(forecast['ds'].dt.year == 2021) & (forecast['ds'].dt.month == 1)]['yhat'].values[0]
 
-    return str(forecasted_value)
+    return forecasted_value, model
 
+model, forecasted_value = generate_futute_data()
 
-# print('The forecasted number of accidents for Alkoholunfälle (insgesamt) in January 2021 is:', round(forecasted_value,3))
+print('The forecasted number of accidents for Alkoholunfälle (insgesamt) in January 2021 is:', round(forecasted_value,3))
 
 artifact_filename_lr = 'model.pkl'
 # save the model as a pickle file
@@ -87,16 +89,16 @@ with open(local_path, 'wb') as f:
   pickle.dump(model, f)
 
 # Upload model artifact to Cloud Storage
-# model_directory = os.environ['AIP_MODEL_DIR']
-# storage_path = os.path.join(model_directory, artifact_filename_lr)
-# blob = storage.blob.Blob.from_string(storage_path, client=storage.Client())
-# blob.upload_from_filename(local_path)
+model_directory = os.environ['AIP_MODEL_DIR']
+storage_path = os.path.join(model_directory, artifact_filename_lr)
+blob = storage.blob.Blob.from_string(storage_path, client=storage.Client())
+blob.upload_from_filename(local_path)
 
-from flask import Flask
+# from flask import Flask
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
 
-@app.route('/future')
-def model():
-    return generate_futute_data()
+# @app.route('/future')
+# def model():
+#     return generate_futute_data()
