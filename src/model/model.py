@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 from prophet import Prophet
 
+
 logging.getLogger('cmdstanpy').setLevel(logging.WARNING)
 
 #need to read paramters from CONFIG.ini
@@ -34,6 +35,7 @@ def get_data_preprocess():
     for col in numeric_cols:
         # replace Non-numeric value and empty values with NaN
         # data[col] = pd.to_numeric(data[col], downcast="integer", errors='coerce').astype('Int64') # to avoid creating copy of it/ new dataframe
+        # data[data.columns[col]] = pd.to_numeric(data[col],downcast="integer", errors='coerce').astype('Int64')   #modifying the original DataFrame and not a copy of it.
         data.loc[:, col] = pd.to_numeric(data[col],downcast="integer", errors='coerce').astype('Int64')   #modifying the original DataFrame and not a copy of it.
 
     # drop rows with missing values in the numeric columns
@@ -75,30 +77,40 @@ def generate_futute_data():
     # get the forecasted value for the given year and month
     forecasted_value = forecast[(forecast['ds'].dt.year == 2021) & (forecast['ds'].dt.month == 1)]['yhat'].values[0]
 
-    return forecasted_value, model
+    return model, forecasted_value
 
 model, forecasted_value = generate_futute_data()
 
-print('The forecasted number of accidents for Alkoholunfälle (insgesamt) in January 2021 is:', round(forecasted_value,3))
+# print('The forecasted number of accidents for Alkoholunfälle (insgesamt) in January 2021 is:', round(forecasted_value,3))
 
-artifact_filename_lr = 'model.pkl'
-# save the model as a pickle file
-# Save model artifact to local filesystem (doesn't persist)
+# artifact_filename_lr = 'model.pkl'
+# # save the model as a pickle file
+# # Save model artifact to local filesystem (doesn't persist)
+# local_path = artifact_filename_lr
+# with open(local_path, 'wb') as f:
+#   pickle.dump(model, f)
+
+import joblib
+
+# save the model as a joblib file
+artifact_filename_lr = 'model.joblib'
 local_path = artifact_filename_lr
-with open(local_path, 'wb') as f:
-  pickle.dump(model, f)
+joblib.dump(model, local_path)
 
-# Upload model artifact to Cloud Storage
-model_directory = os.environ['AIP_MODEL_DIR']
-storage_path = os.path.join(model_directory, artifact_filename_lr)
-blob = storage.blob.Blob.from_string(storage_path, client=storage.Client())
-blob.upload_from_filename(local_path)
+# # Upload model artifact to Cloud Storage
+# model_directory = os.environ['AIP_MODEL_DIR']
+# storage_path = os.path.join(model_directory, artifact_filename_lr)
+# blob = storage.blob.Blob.from_string(storage_path, client=storage.Client())
+# blob.upload_from_filename(local_path)
 
 # from flask import Flask
 
 # app = Flask(__name__)
+# app.debug = True  # advise not to use debug mode in a production environment.
+# # 
 
-
-# @app.route('/future')
+# @app.route('/')
 # def model():
 #     return generate_futute_data()
+
+# app.debug = True  # advise not to use debug mode in a production environment.
