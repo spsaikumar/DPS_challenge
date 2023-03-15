@@ -37,19 +37,19 @@ from flask import Flask, jsonify, request
 #     return generate_futute_data()
 
 # Load the pickled model
-with open('model.pkl', 'rb') as f:
+with open('./model.pkl', 'rb') as f:
     model = pickle.load(f)
 
 # define the Flask app
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return 'Welcome to the traffic accidents prediction API!'
+# @app.route('/')
+# def index():
+#     return 'Welcome to the traffic accidents prediction API!'
 
 
 # define the prediction endpoint
-@app.route('/predict', methods=['POST'])
+@app.route('/', methods=['POST'])
 def predict():
     # parse the input JSON data
     data = request.json
@@ -66,7 +66,7 @@ def predict():
     forecast = model.predict(input_data)
     print("forecast data:",forecast)
     print('='*50)
-    
+
     # extract the predicted value
     prediction = forecast['yhat'].values[0]
     print("prediction :",prediction)
