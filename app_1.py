@@ -29,7 +29,7 @@ def predict_chance(Category, Accident_type, Year, Month):
     prediction=regressor.predict([[Category, Accident_type, Year, Month]]) #predictions using our model     
 
 
-    return prediction 
+    return prediction[0] 
 
 
 def main():
