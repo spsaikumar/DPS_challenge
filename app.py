@@ -3,7 +3,7 @@ import pandas as pd
 import pickle 
 import streamlit as st
 
-regressor=pickle.load(open('src/model/model_dt.pkl','rb'))
+regressor=pickle.load(open('src/model.pkl','rb'))
 #regressor=pickle.load(pickle_a) # our model
 
 def predict_chance(Category, Accident_type, Year, Month):
