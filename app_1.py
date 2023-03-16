@@ -45,8 +45,8 @@ def main():
     data = st.text_input("Enter input data (Year and Month) in JSON format: ")
     try:
         data_dict = json.loads(data)
-        Category = data_dict['Category']
-        Accident_type = data_dict['Accident_type']
+        # Category = data_dict['Category']
+        # Accident_type = data_dict['Accident_type']
         Year = data_dict['year']
         Month = data_dict['month']
     except:
