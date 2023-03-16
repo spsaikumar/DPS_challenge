@@ -2,11 +2,13 @@ import numpy as np
 import pandas as pd
 import pickle 
 import streamlit as st
-from streamlit.server import Server
 
-regressor = pickle.load(open('src/model.pkl','rb'))
+regressor=pickle.load(open('src/model.pkl','rb'))
+#regressor=pickle.load(pickle_a) # our model
 
 def predict_chance(Category, Accident_type, Year, Month):
+    #prediction=regressor.predict([[Category, Accident_type, Year, Month]]) #predictions using our model
+    
     # Pre-processing user input    
     if Category == "Verkehrsunfälle":
         Category = 0
@@ -15,6 +17,7 @@ def predict_chance(Category, Accident_type, Year, Month):
     elif Category == "Fluchtunfälle":
         Category = 2
 
+
     if Accident_type == "insgesamt":
         Accident_type = 0
     elif Accident_type == "Verletzte und Getötete":
@@ -22,23 +25,33 @@ def predict_chance(Category, Accident_type, Year, Month):
     elif Accident_type == "mit Personenschäden":
         Accident_type = 2   
 
-    prediction = regressor.predict([[Category, Accident_type, Year, Month]])
-    return int(prediction[0])
+    prediction=regressor.predict([[Category, Accident_type, Year, Month]]) #predictions using our model     
 
-def app():
-    st.set_page_config(layout="wide")
-    st.title("Accident Value prediction APP using ML")
 
-    input_json = st.text_input("Input JSON", value='{"year":2020, "month":10}')
+    return prediction 
 
-    if st.button("Predict"):
-        input_dict = json.loads(input_json)
-        year = input_dict["year"]
-        month = input_dict["month"]
-        prediction = predict_chance("Verkehrsunfälle", "insgesamt", year, month)
-        output_json = json.dumps({"prediction": prediction})
-        st.write(output_json)
 
-if __name__ == "__main__":
-    server = Server()
-    server.start(app)
+def main():
+    st.title("Accident Value prediction APP using ML") #simple title for the app
+    html_temp="""
+        <div>
+        <h2>Accident Value prediction APP</h2>
+        </div>
+        """
+    st.markdown(html_temp,unsafe_allow_html=True) #a simple html 
+    data = st.text_input("Enter input data in JSON format: ")
+    try:
+        data_dict = json.loads(data)
+        Category = data_dict['Category']
+        Accident_type = data_dict['Accident_type']
+        Year = data_dict['Year']
+        Month = data_dict['Month']
+    except:
+        st.warning("Invalid input format. Please enter a valid JSON object.")
+        return
+    result = predict_chance(Category, Accident_type, Year, Month) # result will be displayed
+    output_dict = {"prediction": result[0]}
+    st.json(output_dict)
+
+if __name__=='__main__':
+    main()
