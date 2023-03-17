@@ -17,7 +17,7 @@ Mission 3: Sending the URL of the task
  - **Preprocessing.ipynb**: A jupyter notebook contains a step-by-step of importing the data, cleaning, and then visualizing the results
  - **src/train.py**: A python script that loads the preprocessed data, then estimating the parameters passed for the model: `Random Forest regressor`. The model is trained and tested on the year 2020 data, the model is then evaluated and exported for deployment.
  - **setup.sh & app.py**: Two scripts, in order, the former contains the class which performs the  forecasting and returns the result. The latter is the endpoint, which is deployed through `Streamlit`.
- - **test.py**: a script to test the requests to the endpoint.
+ - **submit_challenge.py**: a script to test the requests to the endpoint.
 
 ## Demo link
 View demo <a href="https://spsaikumar-dps-challenge-app-swrm06.streamlit.app/"><b>Here 💻</b></a>.
