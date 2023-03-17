@@ -53,7 +53,7 @@ def main():
         st.warning("Invalid input format. Please enter a valid JSON object.")
         return
     result = predict_chance(Category, Accident_type, Year, Month) # result will be displayed
-    output_dict = {"prediction": result}
+    output_dict = {"prediction": round(result)}
     st.json(output_dict)
 
 if __name__=='__main__':
