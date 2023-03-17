@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import pickle 
 import streamlit as st
+import json
 
 regressor=pickle.load(open('src/model.pkl','rb'))
 #regressor=pickle.load(pickle_a) # our model
@@ -28,7 +29,7 @@ def predict_chance(Category, Accident_type, Year, Month):
     prediction=regressor.predict([[Category, Accident_type, Year, Month]]) #predictions using our model     
 
 
-    return prediction 
+    return prediction[0] 
 
 
 def main():
@@ -41,12 +42,19 @@ def main():
     st.markdown(html_temp,unsafe_allow_html=True) #a simple html 
     Category=st.selectbox('Category', ("Verkehrsunfälle","Alkoholunfälle","Fluchtunfälle"))
     Accident_type=st.selectbox('Accident_type',("insgesamt" ,"Verletzte und Getötete","mit Personenschäden"))
-    Year=st.text_input("Year")
-    Month=st.text_input("Month") #giving inputs as used in building the model
-    result=""
-    if st.button("Predict"):
-        result=predict_chance(Category,Accident_type,Year,Month) #result will be displayed if button is pressed
-    st.success("The  Number of accidents are  {} ".format(result))
-        
+    data = st.text_input("Enter input data (Year and Month) in JSON format: ")
+    try:
+        data_dict = json.loads(data)
+        # Category = data_dict['Category']
+        # Accident_type = data_dict['Accident_type']
+        Year = data_dict['year']
+        Month = data_dict['month']
+    except:
+        st.warning("Invalid input format. Please enter a valid JSON object.")
+        return
+    result = predict_chance(Category, Accident_type, Year, Month) # result will be displayed
+    output_dict = {"prediction": result}
+    st.json(output_dict)
+
 if __name__=='__main__':
     main()
