@@ -44,19 +44,22 @@ visualization historically the number of accidents per category
 
 <br />
 
-### Number of accidents per category
+### Number of accidents per category:
+
 <img src="./images/No. of Accidents per Category.png"/>
 
 <br />
 
-### Number of accidents per Accident Type
+### Number of accidents per Accident Type:
+
 <img src="./images/No. of Accidents per Accident type.png"/>
 
 <br />
 
 ### Performace metrics of different models:
-<img src="./images/Alkoholunfälle_insgesamt_table.txt"/>
-<img src="./images/Fluchtunfälle_insgesamt_table.txt"/>
-<img src="./images/Verkehrsunfälle_insgesamt_table.txt"/>
+
+<img src="./images/Alkoholunfälle_insgesamt_table.txt">
+<img src="./images/Fluchtunfälle_insgesamt_table.txt">
+<img src="./images/Verkehrsunfälle_insgesamt_table.txt">
 
 <br />
