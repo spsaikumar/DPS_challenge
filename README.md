@@ -35,3 +35,27 @@ Download the <a href="https://www.opengov-muenchen.de/dataset/monatszahlen-verke
 - sklearn
 - pickle
 - streamlit
+
+## Visualization:
+visualization historically the number of accidents per category
+### Accidents Category Visualization:
+
+<img src="./images/No. of Accidents per Category_multiplots.png"/>
+<img src="./images/accidents_category2.jpg"/>
+<img src="./images/accidents_category3.jpg"/>
+<img src="./images/accidents_category4.jpg"/>
+
+<br />
+
+### Number of accidents per category
+<img src="./images/No. of Accidents per Category.png"/>
+
+<br />
+
+### Number of accidents per Accident Type
+<img src="./images/No. of Accidents per Accident type.jpg"/>
+
+### Performace metrics of different models:
+<img src="./images/Alkoholunfälle_insgesamt_table.png"/>
+<img src="./images/Fluchtunfälle_insgesamt_table.png"/>
+<img src="./images/Verkehrsunfälle_insgesamt_table.png"/>
