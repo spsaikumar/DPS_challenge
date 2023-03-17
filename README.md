@@ -6,11 +6,11 @@ The project is submitted for a challenge for the Digital Product School (DPS). I
 
 This challenge for Artificial Intelligence Engineer Consists of 3 tasks.
 
-Mission 1: Create a AI Model
+- Mission 1: Create a AI Model
             Cleaning the data,  visualizing the historical accidents from the dataframe,Training a model to forecast future values.
-Mission 2: Publish source code & Deploy
+- Mission 2: Publish source code & Deploy
            Deploying the model with an endpoint that accepts POST requests in JSON body
-Mission 3: Sending the URL of the task
+- Mission 3: Sending the URL of the task
 
 ### Files
 
