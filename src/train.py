@@ -1,17 +1,9 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import calendar
-import seaborn as sns
 
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.datasets import fetch_covtype
-from sklearn.model_selection import cross_validate
-from sklearn.model_selection import GridSearchCV
 import numpy as np
 import pickle
 
@@ -59,21 +51,18 @@ X['Month'] = le.fit_transform(X['Month'])
 # train and test split and building baseline model to predict target features
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-parameters = {
-    'n_estimators': [100, 150, 200, 250, 300],
-    'max_depth': [1,2,3,4],
-}
-# Fitting Decision Tree Regression to the dataset
-regressor = DecisionTreeRegressor()
-regressor.fit(X_train, y_train)
-# regr = RandomForestRegressor(random_state=0)
-# clf = GridSearchCV(regr, parameters)
-# clf.fit(X_train, y_train)
+
+# Random Forest Regressor model
+rf_model = RandomForestRegressor()
+rf_model.fit(X_train, y_train)
+rf_y_pred = rf_model.predict(X_test)
 
 # Save the model
 import pathlib
 filename = 'model.pkl'
-pickle.dump(regressor, open(filename, 'wb'))
+with open(filename, 'wb') as f:
+  pickle.dump(rf_model, f)
+pickle.dump(rf_model, open(filename, 'wb'))
 
 # regressor=pickle.load(open('model.pkl','rb'))
 
