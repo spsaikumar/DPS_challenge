@@ -58,10 +58,21 @@ visualization historically the number of accidents per category
 
 ### Performace metrics of different models:
 
-![alt text](https://github.com/spsaikumar/DPS_challenge/blob/e653c394d6349b08087f101f2512b23182f3f40b/images/Alkoholunf%C3%A4lle_insgesamt_table.txt)
-
-<pre src="./images/Alkoholunfälle_insgesamt_table.txt"/>
-<txt src="./images/Fluchtunfälle_insgesamt_table.txt">
-<img src="./images/Verkehrsunfälle_insgesamt_table.txt">
-
-<br />
++----------------+---------------+-----------------------+-----------+--------+--------+--------+-------+-------+
+|    Category    | Accident_Type |         Model         |    MSE    |  RMSE  |  MAE   |   R2   |  COD  |  EVS  |
++----------------+---------------+-----------------------+-----------+--------+--------+--------+-------+-------+
+| Alkoholunfälle |   insgesamt   |        Prophet        | 475869.55 | 268.8  | 581.39 | -0.697 | -0.45 | -0.45 |
+| Alkoholunfälle |   insgesamt   |         ARIMA         | 286984.07 | 535.71 | 456.96 | -0.023 |  0.16 |  0.0  |
+| Alkoholunfälle |   insgesamt   |         SARIMA        | 286984.07 | 535.71 | 456.96 | -0.023 |  0.16 |   0   |
+| Alkoholunfälle |   insgesamt   |   Linear Regression   |   153.66  |  12.4  |  9.97  | 0.194  |  0.2  |  0.2  |
+| Alkoholunfälle |   insgesamt   |     Decision Tree     |   94.37   |  9.71  |  8.02  | 0.505  |  0.51 |  0.51 |
+| Alkoholunfälle |   insgesamt   |     Random Forest     |    63.6   |  7.98  |  6.03  | 0.666  |  0.68 |  0.68 |
+| Alkoholunfälle |   insgesamt   |          SVR          |   199.18  | 14.11  | 11.54  | -0.045 |  0.0  |  0.0  |
+| Alkoholunfälle |   insgesamt   |          GBT          |    57.6   |  7.59  |  5.95  | 0.698  |  0.71 |  0.71 |
+| Alkoholunfälle |   insgesamt   |          XGB          |    64.8   |  8.05  |  6.37  |  0.66  |  0.67 |  0.67 |
+| Alkoholunfälle |   insgesamt   |         LGBMR         |   67.76   |  8.23  |  6.56  | 0.644  |  0.65 |  0.65 |
+| Alkoholunfälle |   insgesamt   |   RandomSearch_CV-RF  |   70.56   |  8.4   |  6.74  |  0.63  |  0.64 |  0.64 |
+| Alkoholunfälle |   insgesamt   |  RandomSearch_CV-GBT  |   81.52   |  9.03  |  6.95  | 0.572  |  0.59 |  0.59 |
+| Alkoholunfälle |   insgesamt   |  RandomSearch_CV-XGB  |    64.8   |  8.05  |  6.37  |  0.66  |  0.67 |  0.67 |
+| Alkoholunfälle |   insgesamt   | RandomSearch_CV-LGBMR |   67.76   |  8.23  |  6.56  | 0.644  |  0.65 |  0.65 |
++----------------+---------------+-----------------------+-----------+--------+--------+--------+-------+-------+
