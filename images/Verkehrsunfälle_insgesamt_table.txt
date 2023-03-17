@@ -1,0 +1,18 @@
++-----------------+---------------+-----------------------+-----------+--------+--------+--------+-------+-------+
+|     Category    | Accident_Type |         Model         |    MSE    |  RMSE  |  MAE   |   R2   |  COD  |  EVS  |
++-----------------+---------------+-----------------------+-----------+--------+--------+--------+-------+-------+
+| Verkehrsunfälle |   insgesamt   |        Prophet        | 475869.55 | 268.8  | 581.39 | -0.697 | -0.45 | -0.45 |
+| Verkehrsunfälle |   insgesamt   |         ARIMA         | 286984.07 | 535.71 | 456.96 | -0.023 |  0.16 |  0.0  |
+| Verkehrsunfälle |   insgesamt   |         SARIMA        | 286984.07 | 535.71 | 456.96 | -0.023 |  0.16 |   0   |
+| Verkehrsunfälle |   insgesamt   |   Linear Regression   | 190406.83 | 436.36 | 345.47 | 0.219  |  0.22 |  0.22 |
+| Verkehrsunfälle |   insgesamt   |     Decision Tree     | 105933.24 | 325.47 | 236.18 | 0.565  |  0.57 |  0.57 |
+| Verkehrsunfälle |   insgesamt   |     Random Forest     |  53422.3  | 231.13 | 167.24 | 0.781  |  0.78 |  0.78 |
+| Verkehrsunfälle |   insgesamt   |          SVR          | 243957.67 | 493.92 | 394.52 | -0.001 |  0.0  |  0.0  |
+| Verkehrsunfälle |   insgesamt   |          GBT          |  38605.96 | 196.48 | 151.65 | 0.842  |  0.84 |  0.84 |
+| Verkehrsunfälle |   insgesamt   |          XGB          |  72669.09 | 269.57 | 202.41 | 0.702  |  0.7  |  0.7  |
+| Verkehrsunfälle |   insgesamt   |         LGBMR         |  72251.2  | 268.8  | 193.06 | 0.703  |  0.7  |  0.7  |
+| Verkehrsunfälle |   insgesamt   |   RandomSearch_CV-RF  |  54405.23 | 233.25 | 175.82 | 0.777  |  0.78 |  0.78 |
+| Verkehrsunfälle |   insgesamt   |  RandomSearch_CV-GBT  |  59797.36 | 244.53 | 186.68 | 0.755  |  0.76 |  0.76 |
+| Verkehrsunfälle |   insgesamt   |  RandomSearch_CV-XGB  |  65215.93 | 255.37 | 202.29 | 0.732  |  0.73 |  0.73 |
+| Verkehrsunfälle |   insgesamt   | RandomSearch_CV-LGBMR |  61477.22 | 247.95 | 177.96 | 0.748  |  0.75 |  0.75 |
++-----------------+---------------+-----------------------+-----------+--------+--------+--------+-------+-------+
