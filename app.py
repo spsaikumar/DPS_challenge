@@ -33,7 +33,7 @@ def predict_chance(Category, Accident_type, Year, Month):
 
 
 def main():
-    st.title("Accident Value prediction APP using ML") #simple title for the app
+    st.title("Monthly figures for traffic accidents Value prediction APP using Random Forest model") #simple title for the app
     html_temp="""
         <div>
         <h2>Accident Value prediction APP</h2>
