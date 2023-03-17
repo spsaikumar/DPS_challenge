@@ -56,11 +56,11 @@ visualization historically the number of accidents per category
 
 <br />
 
-### Performace metrics of different models:
+### Performace metrics of different models
 
-+----------------+---------------+-----------------------+-----------+--------+--------+--------+-------+-------+
+
 |    Category    | Accident_Type |         Model         |    MSE    |  RMSE  |  MAE   |   R2   |  COD  |  EVS  |
-+----------------+---------------+-----------------------+-----------+--------+--------+--------+-------+-------+
+|   ----------   | ----------    |         ----------    |---------- |--------|--------|--------|--------|------|
 | Alkoholunfälle |   insgesamt   |        Prophet        | 475869.55 | 268.8  | 581.39 | -0.697 | -0.45 | -0.45 |
 | Alkoholunfälle |   insgesamt   |         ARIMA         | 286984.07 | 535.71 | 456.96 | -0.023 |  0.16 |  0.0  |
 | Alkoholunfälle |   insgesamt   |         SARIMA        | 286984.07 | 535.71 | 456.96 | -0.023 |  0.16 |   0   |
@@ -75,4 +75,4 @@ visualization historically the number of accidents per category
 | Alkoholunfälle |   insgesamt   |  RandomSearch_CV-GBT  |   81.52   |  9.03  |  6.95  | 0.572  |  0.59 |  0.59 |
 | Alkoholunfälle |   insgesamt   |  RandomSearch_CV-XGB  |    64.8   |  8.05  |  6.37  |  0.66  |  0.67 |  0.67 |
 | Alkoholunfälle |   insgesamt   | RandomSearch_CV-LGBMR |   67.76   |  8.23  |  6.56  | 0.644  |  0.65 |  0.65 |
-+----------------+---------------+-----------------------+-----------+--------+--------+--------+-------+-------+
+
