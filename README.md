@@ -1,11 +1,23 @@
 # AI Engineering Challenge: Digital Product School of UnternehmerTUM
 
+The project is submitted for a challenge for the Digital Product School (DPS). In the project a dataframe consisting of historical values of the accidents from different categories in the city of Munich, Germany.
+
 ## Description
+
 This challenge for Artificial Intelligence Engineer Consists of 3 tasks.
 
 Mission 1: Create a AI Model
+            Cleaning the data,  visualizing the historical accidents from the dataframe,Training a model to forecast future values.
 Mission 2: Publish source code & Deploy
+           Deploying the model with an endpoint that accepts POST requests in JSON body
 Mission 3: Sending the URL of the task
+
+### Files
+
+ - **Preprocessing.ipynb**: A jupyter notebook contains a step-by-step of importing the data, cleaning, and then visualizing the results
+ - **src/train.py**: A python script that loads the preprocessed data, then estimating the parameters passed for the model: `Random Forest regressor`. The model is trained and tested on the year 2020 data, the model is then evaluated and exported for deployment.
+ - **setup.sh & app.py**: Two scripts, in order, the former contains the class which performs the  forecasting and returns the result. The latter is the endpoint, which is deployed through `Streamlit`.
+ - **test.py**: a script to test the requests to the endpoint.
 
 ## Demo link
 View demo <a href="https://spsaikumar-dps-challenge-app-swrm06.streamlit.app/"><b>Here 💻</b></a>.
@@ -58,6 +70,8 @@ visualization historically the number of accidents per category
 
 ### Performace metrics of different models
 
+Computed different regression, forecast algorithms and Random Search CV(hyperparamter tuning) models and compared each of them by using metrics
+
 
 |    Category    | Accident_Type |         Model         |    MSE    |  RMSE  |  MAE   |   R2   |  COD  |  EVS  |
 |   ----------   | ----------    |         ----------    |---------- |--------|--------|--------|--------|------|
@@ -76,7 +90,9 @@ visualization historically the number of accidents per category
 | Alkoholunfälle |   insgesamt   |  RandomSearch_CV-XGB  |    64.8   |  8.05  |  6.37  |  0.66  |  0.67 |  0.67 |
 | Alkoholunfälle |   insgesamt   | RandomSearch_CV-LGBMR |   67.76   |  8.23  |  6.56  | 0.644  |  0.65 |  0.65 |
 
+
 <br />
+
 
 
 |    Category   | Accident_Type |         Model         |    MSE    |  RMSE  |  MAE   |   R2   |  COD  |  EVS  |
@@ -97,7 +113,9 @@ visualization historically the number of accidents per category
 | Fluchtunfälle |   insgesamt   | RandomSearch_CV-LGBMR |  11461.87 | 107.06 | 76.03  |  0.55  |  0.55 |  0.55 |
 
 
+
 <br />
+
 
 
 |     Category    | Accident_Type |         Model         |    MSE    |  RMSE  |  MAE   |   R2   |  COD  |  EVS  |
