@@ -70,7 +70,7 @@ visualization historically the number of accidents per category
 
 ### Performace metrics of different models
 
-Computed different regression, forecast algorithms and Random Search CV(hyperparamter tuning) models and compared each of them by using metrics
+For each Category and Accident type (insgesamt): Computed different regression, forecast algorithms and Random Search CV(hyperparamter tuning) models and compared each of them by using metrics
 
 
 |    Category    | Accident_Type |         Model         |    MSE    |  RMSE  |  MAE   |   R2   |  COD  |  EVS  |
