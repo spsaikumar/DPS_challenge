@@ -78,7 +78,7 @@ visualization historically the number of accidents per category
 
 <br />
 
-|---------------|---------------|-----------------------|-----------|--------|--------|--------|-------|-------|
+
 |    Category   | Accident_Type |         Model         |    MSE    |  RMSE  |  MAE   |   R2   |  COD  |  EVS  |
 |---------------|---------------|-----------------------|-----------|--------|--------|--------|-------|-------|
 | Fluchtunfälle |   insgesamt   |        Prophet        | 475869.55 | 268.8  | 581.39 | -0.697 | -0.45 | -0.45 |
@@ -95,11 +95,11 @@ visualization historically the number of accidents per category
 | Fluchtunfälle |   insgesamt   |  RandomSearch_CV-GBT  |  11253.91 | 106.08 | 76.44  | 0.558  |  0.56 |  0.56 |
 | Fluchtunfälle |   insgesamt   |  RandomSearch_CV-XGB  |  9373.33  | 96.82  | 70.46  | 0.632  |  0.64 |  0.64 |
 | Fluchtunfälle |   insgesamt   | RandomSearch_CV-LGBMR |  11461.87 | 107.06 | 76.03  |  0.55  |  0.55 |  0.55 |
-|---------------|---------------|-----------------------|-----------|--------|--------|--------|-------|-------|
+
 
 <br />
 
-|---------------  |---------------|-----------------------|-----------|--------|--------|--------|-------|-------|
+
 |     Category    | Accident_Type |         Model         |    MSE    |  RMSE  |  MAE   |   R2   |  COD  |  EVS  |
 |---------------  |---------------|-----------------------|-----------|--------|--------|--------|-------|-------|
 | Verkehrsunfälle |   insgesamt   |        Prophet        | 475869.55 | 268.8  | 581.39 | -0.697 | -0.45 | -0.45 |
@@ -116,7 +116,7 @@ visualization historically the number of accidents per category
 | Verkehrsunfälle |   insgesamt   |  RandomSearch_CV-GBT  |  59797.36 | 244.53 | 186.68 | 0.755  |  0.76 |  0.76 |
 | Verkehrsunfälle |   insgesamt   |  RandomSearch_CV-XGB  |  65215.93 | 255.37 | 202.29 | 0.732  |  0.73 |  0.73 |
 | Verkehrsunfälle |   insgesamt   | RandomSearch_CV-LGBMR |  61477.22 | 247.95 | 177.96 | 0.748  |  0.75 |  0.75 |
-|---------------  |---------------|-----------------------|-----------|--------|--------|--------|-------|-------|
+
 
 
 
