@@ -58,7 +58,7 @@ visualization historically the number of accidents per category
 
 ### Performace metrics of different models:
 
-![alt text](./images/Alkoholunfälle_insgesamt_table.txt)
+![alt text](https://github.com/spsaikumar/DPS_challenge/blob/e653c394d6349b08087f101f2512b23182f3f40b/images/Alkoholunf%C3%A4lle_insgesamt_table.txt)
 
 <pre src="./images/Alkoholunfälle_insgesamt_table.txt">
 <txt src="./images/Fluchtunfälle_insgesamt_table.txt">
