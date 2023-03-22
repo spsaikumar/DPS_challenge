@@ -1,4 +1,4 @@
-# AI Engineering Challenge: Digital Product School of UnternehmerTUM
+# AI Challenge: Digital Product School of UnternehmerTUM
 
 The project is submitted for a challenge for the Digital Product School (DPS). In the project a dataframe consisting of historical values of the accidents from different categories in the city of Munich, Germany.
 
